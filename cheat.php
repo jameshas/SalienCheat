@@ -221,7 +221,7 @@ do
 			$Time = microtime( true );
 			$UseHeal = 0;
 			// Do more damage in hopes of getting a harder boss next time
-			$DamageToBoss = $WaitingForPlayers ? 0 : random_int( 20, 70 );
+			$DamageToBoss = $WaitingForPlayers ? 0 : random_int( 30, 150 );
 			$DamageTaken = 0;
 
 			if( $Time >= $NextHeal )
@@ -351,7 +351,7 @@ do
 				Msg( '@@ Estimated Time Remaining: {teal}' . gmdate( 'H:i:s', $EstTickRemain * 5 ) );
 
 				// Only keep the last 1 minute of game time (12 ticks) in BossEstimate
-				if ( count( $BossEstimate[ 'DeltHP' ] ) == 12 )
+				if( count( $BossEstimate[ 'DeltHP' ] ) >= 12 )
 				{
 					array_shift( $BossEstimate[ 'DeltHP' ] );
 					array_shift( $BossEstimate[ 'DeltXP' ] );
